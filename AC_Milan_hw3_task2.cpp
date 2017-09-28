@@ -1,52 +1,47 @@
 #include <iostream>
 using namespace std;
 
-//Define class date
-class Date
+//Define class serial
+class serial
 {
-//Set variables
+
 private:
-    int month, day, year;
+    int num;
+    static int count;
 public:
-    void setDate(int m, int d, int y)
+    //Create constructor
+    serial (): num(0)
     {
-        int month = m;
-        int day = d;
-        int year = y;
+        count++;
     }
-    //Get user input
-    void getDate()
+    int getCount()
     {
-        char tempchar;
-        cin >> month >> tempchar >> day >> tempchar >> year;
-    }
-    //Display Information
-    void showDate()
-    {
-        cout << month << "/" << day << "/" << year;
+        return count;
     }
 };
+int serial:: count = 0;
+
+//Prototype
+void ShowCount(serial s1);
+
 //Main program
 int main()
 {
-    //Create two instances of the class
-    Date d1, d2;
+    //Create 3 intances of the serial class
+    serial alpha;
+    ShowCount(alpha);
+    serial beta;
+    ShowCount(beta);
+    serial gamma;
+    ShowCount(gamma);
 
-    //set, get, first date
-    cout<<"Enter a date (format 12/31/2007):"<<endl;
-    d1.setDate(0, 0, 0);
-    d1.getDate();
-
-    //set, get second date
-    cout<<"Enter another date:"<<endl;
-    d2.setDate(0, 0, 0);
-    d2.getDate();
-
-    //Show dates
-    cout << "Date 1: ";
-    d1.showDate();
-    cout << "\nDate 2: ";
-    d2.showDate();
 
     return 0;
+
+}
+
+// Function Definitions to display the number of objects
+void ShowCount(serial s1)
+{
+    cout << "I am object number " << s1.getCount() << endl;
 }
