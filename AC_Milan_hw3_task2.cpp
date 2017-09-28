@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-//Define class serial
+//Define class serial//
 class serial
 {
 
